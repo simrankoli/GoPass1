@@ -1,15 +1,9 @@
-package com.example.login_page
+package kotlinprogram.examplelearning.login_page
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.login_page.BusPassDetails
-import com.example.login_page.BusPassForm
-import com.example.login_page.HomePage
-import com.example.login_page.LoginScreen
-
-
 
 @Composable
 fun AppNavigation() {
@@ -21,19 +15,24 @@ fun AppNavigation() {
         composable("main") { MainScreen(navController) }
         composable("new_pass") { BusPassForm(navController) }
 
-
         composable("busPassForm") {
             BusPassForm(navController)
         }
-        composable("busPassDetails/{name}/{studentId}/{contact}/{email}/{pickup}/{drop}/{payment}") { backStackEntry ->
+        composable("busPassDetails/{name}/{studentId}/{contact}/{email}/{course}/{pickupLocation}/{dropLocation}/{paymentMode}/{academicYear}/{passDuration}/{imageUriString}") { backStackEntry ->
+
+      //  composable("busPassDetails/{name}/{studentId}/{contact}/{email}/{course}/{pickupLocation}/{dropLocation}/{paymentMode}/{academicYear}/{passDuration}/{imageUriString}") { backStackEntry ->
             BusPassDetails(
                 name = backStackEntry.arguments?.getString("name") ?: "",
                 studentId = backStackEntry.arguments?.getString("studentId") ?: "",
                 contact = backStackEntry.arguments?.getString("contact") ?: "",
                 email = backStackEntry.arguments?.getString("email") ?: "",
-                pickupLocation = backStackEntry.arguments?.getString("pickup") ?: "",
-                dropLocation = backStackEntry.arguments?.getString("drop") ?: "",
-                paymentMode = backStackEntry.arguments?.getString("payment") ?: ""
+                course = backStackEntry.arguments?.getString("course") ?: "",
+                pickupLocation = backStackEntry.arguments?.getString("pickupLocation") ?: "",
+                dropLocation = backStackEntry.arguments?.getString("dropLocation") ?: "",
+                paymentMode = backStackEntry.arguments?.getString("paymentMode") ?: "",
+                academicYear = backStackEntry.arguments?.getString("academicYear") ?: "",
+                passDuration = backStackEntry.arguments?.getString("passDuration") ?: "",
+                imageUriString = backStackEntry.arguments?.getString("imageUriString")?.takeIf { it != "null" }
             )
         }
     }
