@@ -95,6 +95,14 @@ fun LoginScreen(navController : NavController) {
         ) {
             Text("Login")
         }
+           Spacer(modifier = Modifier.height(16.dp))
+
+        Text(
+            text = "Don't have an account? Sign Up",
+            color = MaterialTheme.colorScheme.primary,
+            style = MaterialTheme.typography.bodySmall,
+            modifier = Modifier.clickable { navController.navigate("signup") }
+        )
     }
 }
 
