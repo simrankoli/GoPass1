@@ -14,6 +14,8 @@ fun AppNavigation() {
         composable("home") { HomePage(navController) }
         composable("main") { MainScreen(navController) }
         composable("new_pass") { BusPassForm(navController) }
+       composable("renew_pass") { RenewPassScreen(navController) }
+
 
         composable("busPassForm") {
             BusPassForm(navController)
